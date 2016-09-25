@@ -1,1 +1,1 @@
-Ruby producer
+Ruby MQTT producer
