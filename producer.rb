@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'thor'
 require "./temperature_notifier"
+require "./mqtt_publisher"
 
 class Producer < Thor
   desc "produce", "start producing MQTT messages"
@@ -27,9 +28,10 @@ class Producer < Thor
     temperature_notifiers = []
 
     publishers_count.times do
-
-      tn = TemperatureNotifier.new(notifying_interval_in_secs)
+      mqtt_publisher = MQTTPublisher.new
+      tn = TemperatureNotifier.new(notifying_interval_in_secs, mqtt_publisher)
       tn.start_notify
+
       temperature_notifiers << tn
     end
 
