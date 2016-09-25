@@ -22,12 +22,13 @@ class Producer < Thor
                 :desc => "number of concurrent prodcers to run"
   def produce
     publishers_count = options[:count]
+    notifying_interval_in_secs = options[:span]
 
     temperature_notifiers = []
 
     publishers_count.times do
 
-      tn = TemperatureNotifier.new
+      tn = TemperatureNotifier.new(notifying_interval_in_secs)
       tn.start_notify
       temperature_notifiers << tn
     end

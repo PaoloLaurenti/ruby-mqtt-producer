@@ -1,8 +1,10 @@
 class TemperatureNotifier
   @inner_thread
+  @notifying_interval_in_secs
 
-  def initialize
+  def initialize(notifying_interval_in_secs)
     @notifying_enabled = false
+    @notifying_interval_in_secs = notifying_interval_in_secs
   end
 
   def start_notify
@@ -11,7 +13,7 @@ class TemperatureNotifier
     @inner_thread = Thread.new do
       while @notifying_enabled do
         puts "notify"
-        sleep(3)
+        sleep(@notifying_interval_in_secs)
       end
     end
   end
