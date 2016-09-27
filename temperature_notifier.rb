@@ -21,7 +21,6 @@ class TemperatureNotifier
 
   def stop_notify
     @notifying_enabled = false
-    @publisher.terminate
     @inner_thread.join
   end
 

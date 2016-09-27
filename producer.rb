@@ -33,7 +33,7 @@ class Producer < Thor
       tn = TemperatureNotifier.new(notifying_interval_in_secs, mqtt_publisher)
       tn.start_notify
 
-      temperature_notifiers << tn
+      temperature_notifiers << [tn, mqtt_publisher]
     end
 
     puts("====================================")
@@ -44,8 +44,9 @@ class Producer < Thor
 
     names = STDIN.gets
 
-    temperature_notifiers.each do |tn|
+    temperature_notifiers.each do |tn, mqtt_pub|
       tn.stop_notify()
+      mqtt_pub.terminate()
     end
   end
 end
