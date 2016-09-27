@@ -22,13 +22,14 @@ class Producer < Thor
                 :aliases => "-c",
                 :desc => "number of concurrent prodcers to run"
   def produce
+    mqtt_host_uri = options[:uri]
     publishers_count = options[:count]
     notifying_interval_in_secs = options[:span]
 
     temperature_notifiers = []
 
     publishers_count.times do
-      mqtt_publisher = MQTTPublisher.new
+      mqtt_publisher = MQTTPublisher.new(mqtt_host_uri)
       tn = TemperatureNotifier.new(notifying_interval_in_secs, mqtt_publisher)
       tn.start_notify
 

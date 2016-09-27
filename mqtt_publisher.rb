@@ -2,8 +2,8 @@ require 'mqtt'
 
 class MQTTPublisher
 
-  def initialize
-    @client = MQTT::Client.connect('mqtt://guest:guest@localhost:1883')
+  def initialize(hostURI)
+    @client = MQTT::Client.connect(hostURI)
   end
 
   def publish
