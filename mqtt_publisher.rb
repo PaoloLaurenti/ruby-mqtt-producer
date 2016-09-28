@@ -1,4 +1,6 @@
 require 'mqtt'
+require 'bindata'
+require './temperature'
 
 class MQTTPublisher
 
@@ -8,7 +10,11 @@ class MQTTPublisher
   end
 
   def publish
-    @client.publish(@routing_key, 'message')
+    temperature = Temperature.new
+    temperature.msg_type = 1
+    temperature.msg_value = 23
+    puts temperature.to_binary_s
+    @client.publish(@routing_key, temperature.to_binary_s, false, 1)
   end
 
   def terminate
