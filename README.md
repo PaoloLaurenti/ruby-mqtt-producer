@@ -4,9 +4,9 @@ This is a ruby terminal application that publishes random MQTT messages to an MQ
 
 Every MQTT message is serialized to binary, little endian format.
 
-Se binary structure is represented as following:
+The binary structure is defined as follows:
 
-- 1 Byte -> 2 (the value 2 means that the message represents the external temperature)
+- 1 Byte -> 2 (the value 2 means that the message represents the external temperature; it cannot be changed)
 - 4 Byte -> <integer> representing the value of the temperature in °C <br/>
 The temperatures values will be inside the range -15 <--> +40
 
