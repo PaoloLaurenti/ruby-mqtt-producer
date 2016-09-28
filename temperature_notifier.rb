@@ -13,8 +13,6 @@ class TemperatureNotifier
 
     @inner_thread = Thread.new do
       while @notifying_enabled do
-
-
         temperature = @temperature_message_factory.create
 
         puts "notify #{temperature}"

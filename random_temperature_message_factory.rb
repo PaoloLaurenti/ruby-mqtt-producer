@@ -2,10 +2,14 @@ require 'bindata'
 
 class RandomTemperatureMessageFactory
 
+  def initialize
+    @random_number_generator = Random.new
+  end
+
   def create
     temperature = TemperatureMQTTMessage.new
     temperature.msg_type = 2
-    temperature.msg_value = 23
+    temperature.msg_value = @random_number_generator.rand(-15..40)
     temperature
   end
 

@@ -23,6 +23,7 @@ class Producer < Thor
                 :aliases => "-c",
                 :desc => "number of concurrent prodcers to run"
   def produce
+    Thread.abort_on_exception = true
     mqtt_host_uri = options[:uri]
     publishers_count = options[:count]
     notifying_interval_in_secs = options[:span]
