@@ -3,7 +3,7 @@ require 'mqtt'
 class MQTTPublisher
 
   def initialize(hostURI)
-    @routing_key = "ruby_mqtt_producer"
+    @routing_key = "devices"
     @client = MQTT::Client.connect(hostURI)
   end
 
