@@ -16,7 +16,7 @@ class RandomTemperatureMessageFactory
   private
 
     class TemperatureMQTTMessage < BinData::Record
-      endian  :little
+      endian  :big
 
       uint8   :msg_type
       uint32  :msg_value
