@@ -29,8 +29,8 @@ If you run
 you will see the following help message
 ```
 Commands:
-  producer.rb help [COMMAND]  # Describe available commands or one specific command
-  producer.rb produce         # start producing MQTT messages
+  producer.rb help [COMMAND]             # Describe available commands or one specific command
+  producer.rb produce -i, --id-seller=N  # start producing MQTT messages
 ```
 
 In order to start publishing messages you have to specify the *produce* command as follows:
@@ -39,12 +39,12 @@ In order to start publishing messages you have to specify the *produce* command 
 Usage:
   producer.rb produce
 
-Options:
-  -u, [--uri=URI]  # URI of the MQTT host where to publish messages
-                   # Default: mqtt://guest:guest@localhost:1883
-  -s, [--span=N]   # waiting time in second between every MQTT publications
-                   # Default: 5
-  -c, [--count=N]  # number of concurrent prodcers to run
-                   # Default: 1
-
+  Options:
+    -u, [--uri=URI]    # URI of the MQTT host where to publish messages
+                       # Default: mqtt://guest:guest@localhost:1883
+    -s, [--span=N]     # waiting time in second between every MQTT publications
+                       # Default: 5
+    -c, [--count=N]    # number of concurrent prodcers to run
+                       # Default: 1
+    -i, --id-seller=N  # id of the shop
 ```

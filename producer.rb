@@ -22,6 +22,11 @@ class Producer < Thor
                 :default => 1,
                 :aliases => "-c",
                 :desc => "number of concurrent prodcers to run"
+  method_option :'id-seller',
+                :type => :numeric,
+                :required => 1,
+                :aliases => "-i",
+                :desc => "id of the shop"
   def produce
     Thread.abort_on_exception = true
     mqtt_host_uri = options[:uri]
