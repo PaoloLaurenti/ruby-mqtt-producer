@@ -32,11 +32,12 @@ class Producer < Thor
     mqtt_host_uri = options[:uri]
     publishers_count = options[:count]
     notifying_interval_in_secs = options[:span]
+    seller_id = options[:'id-seller']
 
     temperature_notifiers = []
 
     publishers_count.times do
-      temperature_message_factory = RandomTemperatureMessageFactory.new
+      temperature_message_factory = RandomTemperatureMessageFactory.new(seller_id)
       mqtt_publisher = MQTTPublisher.new(mqtt_host_uri)
       tn = TemperatureNotifier.new(notifying_interval_in_secs, temperature_message_factory, mqtt_publisher)
       tn.start_notify
