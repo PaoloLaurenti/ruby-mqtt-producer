@@ -12,10 +12,14 @@ The temperatures values will be inside the range -15 <--> +40
 
 **How to run the application?**
 
+There are two ways to run the application.
+
+***Manual***
+
 First of all you need ruby version 2.3.* installed along with the [bundler](http://bundler.io/) gem.
 You can clone this repository and move all the files of the repository inside the folder where you want to place your deployed application.
 
-After that, you can run (inside the base folder of the application)
+After that, you can run (inside the "src" folder of the application)
 ```
 bundle install && chmod +x producer.rb
 ```
@@ -47,4 +51,24 @@ Usage:
     -c, [--count=N]    # number of concurrent prodcers to run
                        # Default: 1
     -i, --id-seller=N  # id of the shop
+```
+
+***By Docker***
+
+First, you have to build the docker image locally. In order to achieve that you have to run the following commands from the *docker* directory:
+
+```
+chmod +x docker.sh
+source docker.sh
+buildDockerImage
+```
+After the building of the docker image has finished you will have (at least) two docker images installed. If you run `docker images`, it will shows you all the images you have installed. Two of those will be:
+
+- ggp/ruby_mqtt_producer, version  latest
+- ruby, version 2.3
+
+In order run the producer you have to run the following command appending the needed parameters as explained in the *manual* section above:
+
+```
+docker run -it ggp/ruby_mqtt_producer produce <ARGS>
 ```
