@@ -15,13 +15,13 @@ class Producer < Thor
   method_option :span,
                 :type => :numeric,
                 :default => 5,
-                :desc => "waiting time in second between every MQTT publications",
+                :desc => "waiting time in seconds between every MQTT publication",
                 :aliases => "-s"
   method_option :count,
                 :type => :numeric,
                 :default => 1,
                 :aliases => "-c",
-                :desc => "number of concurrent prodcers to run"
+                :desc => "number of concurrent producers to run"
   method_option :'id-seller',
                 :type => :numeric,
                 :required => 1,

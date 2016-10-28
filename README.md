@@ -46,9 +46,9 @@ Usage:
   Options:
     -u, [--uri=URI]    # URI of the MQTT host where to publish messages
                        # Default: mqtt://guest:guest@localhost:1883
-    -s, [--span=N]     # waiting time in second between every MQTT publications
+    -s, [--span=N]     # waiting time in seconds between every MQTT publication
                        # Default: 5
-    -c, [--count=N]    # number of concurrent prodcers to run
+    -c, [--count=N]    # number of concurrent producers to run
                        # Default: 1
     -i, --id-seller=N  # id of the shop
 ```
