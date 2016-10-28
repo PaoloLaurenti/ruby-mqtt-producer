@@ -1,1 +1,4 @@
 *.lock
+
+# Docker image files
+docker/src
