@@ -58,7 +58,6 @@ Usage:
 First, you have to build the docker image locally. In order to achieve that you have to run the following commands from the *docker* directory:
 
 ```
-chmod +x docker.sh
 source docker.sh
 buildDockerImage
 ```
