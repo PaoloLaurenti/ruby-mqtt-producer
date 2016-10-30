@@ -1,8 +1,8 @@
 #!/bin/bash
-l
+
 function buildDockerImage()
 {
-  cp -R "../src/" .
+  cp -R "../src" .
 
   if [ ! -z "$HTTP_PROXY" ]; then
       docker build --build-arg HTTP_PROXY=$HTTP_PROXY -t ggp/ruby_mqtt_producer .
