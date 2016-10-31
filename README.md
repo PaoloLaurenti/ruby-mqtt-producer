@@ -59,7 +59,7 @@ First, you have to build the docker image locally. In order to achieve that you 
 
 ```
 source docker.sh
-buildDockerImage
+buildRubyMQTTProducerDockerImage
 ```
 After the building of the docker image has finished you will have (at least) two docker images installed. If you run `docker images`, it will shows you all the images you have installed. Two of those will be:
 
@@ -69,5 +69,5 @@ After the building of the docker image has finished you will have (at least) two
 In order run the producer you have to run the following command appending the needed parameters as explained in the *manual* section above:
 
 ```
-docker run -it ggp/ruby_mqtt_producer produce <ARGS>
+docker run -it --name ruby_mqtt_producer ggp/ruby_mqtt_producer <ARGS>
 ```

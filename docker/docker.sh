@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function buildDockerImage()
+function buildRubyMQTTProducerDockerImage()
 {
   cp -R "../src" .
 
