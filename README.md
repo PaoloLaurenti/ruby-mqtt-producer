@@ -1,4 +1,4 @@
-**Ruby MQTT producer**
+# Ruby MQTT producer
 
 This is a ruby terminal application that publishes random MQTT messages to an MQTT host.
 
@@ -10,11 +10,11 @@ The binary structure is defined as follows:
 - 4 Byte -> <integer> representing the value of the temperature in °C <br/>
 The temperatures values will be inside the range -15 <--> +40
 
-**How to run the application?**
+## How to run the application?
 
 There are two ways to run the application.
 
-***Manual***
+### Manually
 
 First of all you need ruby version 2.3.* installed along with the [bundler](http://bundler.io/) gem.
 You can clone this repository and move all the files of the repository inside the folder where you want to place your deployed application.
@@ -53,21 +53,27 @@ Usage:
     -i, --id-seller=N  # id of the shop
 ```
 
-***By Docker***
+### By Docker
 
+If you want you can build the docker image on your own.<br/>
+It's not necessary if you only need to run the producer, because the docker images is already published on DockerHub. So, in this case, you can skip the following section and go to "Run container" section.
+
+#### Image building
 First, you have to build the docker image locally. In order to achieve that you have to run the following commands from the *docker* directory:
 
 ```
 source docker.sh
-buildRubyMQTTProducerDockerImage
+buildRubyMQTTInternalTemperaturesProducer
 ```
 After the building of the docker image has finished you will have (at least) two docker images installed. If you run `docker images`, it will shows you all the images you have installed. Two of those will be:
 
-- ggp/ruby_mqtt_producer, version  latest
+- ggpltd/ruby_mqtt_internal_temperatures_producer
 - ruby, version 2.3
+
+#### Container running
 
 In order run the producer you have to run the following command appending the needed parameters as explained in the *manual* section above:
 
 ```
-docker run -it --name ruby_mqtt_producer ggp/ruby_mqtt_producer <ARGS>
+docker run -i -t --rm ggpltd/ruby_mqtt_internal_temperatures_producer:latest <ARGS>
 ```
