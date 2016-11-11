@@ -20,18 +20,18 @@ First of all you need ruby version 2.3.* installed along with the [bundler](http
 You can clone this repository and move all the files of the repository inside the folder where you want to place your deployed application.
 
 After that, you can run (inside the "src" folder of the application)
-```
+```shell
 bundle install && chmod +x producer.rb
 ```
 in order to install all the dependencies of the application and make the producer file executable.
 
 If you run
-```
+```shell
 ./producer.rb
 ```
 
 you will see the following help message
-```
+```shell
 Commands:
   producer.rb help [COMMAND]             # Describe available commands or one specific command
   producer.rb produce -i, --id-seller=N  # start producing MQTT messages
@@ -39,7 +39,7 @@ Commands:
 
 In order to start publishing messages you have to specify the *produce* command as follows:
 
-```
+```shell
 Usage:
   producer.rb produce
 
@@ -56,12 +56,12 @@ Usage:
 ### By Docker
 
 If you want you can build the docker image on your own.<br/>
-It's not necessary if you only need to run the producer, because the docker images is already published on DockerHub. So, in this case, you can skip the following section and go to "Run container" section.
+It's not necessary if you only need to run the producer, because the docker image is already published on DockerHub. So, in this case, you can skip the following section and go to "Run container" section.
 
-#### Image building
+#### Build image
 First, you have to build the docker image locally. In order to achieve that you have to run the following commands from the *docker* directory:
 
-```
+```shell
 source docker.sh
 buildRubyMQTTInternalTemperaturesProducer
 ```
@@ -70,10 +70,10 @@ After the building of the docker image has finished you will have (at least) two
 - ggpltd/ruby_mqtt_internal_temperatures_producer
 - ruby, version 2.3
 
-#### Container running
+#### Run container
 
 In order run the producer you have to run the following command appending the needed parameters as explained in the *manual* section above:
 
-```
+```shell
 docker run -i -t --rm ggpltd/ruby_mqtt_internal_temperatures_producer:latest <ARGS>
 ```
